@@ -15,7 +15,7 @@ WAZUH_DIR="${HOME}/wazuh-docker"
 # images pulled with 'docker pull'
 IMAGES=(
   "hello-world:latest" # test image: Docker can run a container
-  "quay.io/minio/minio:latest" # S3-compatible object storage
+  "minio/minio:latest" # S3-compatible object storage
   "quay.io/keycloak/keycloak:latest" # identity provider
   "hashicorp/vault:latest" # secrets management and encryption
   "aquasec/trivy:latest" # image, IaC, and secret scanner
