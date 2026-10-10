@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 A small static checker for AWS-style IAM policy documents (JSON).
 It flags three common red flags in every Allow statement:
