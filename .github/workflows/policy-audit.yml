@@ -1,0 +1,24 @@
+name: Policy Audit
+
+on:
+  push:
+    paths:
+      - "iam_policy_audit/policies/**"
+  pull_request:
+    paths:
+      - "iam_policy_audit/policies/**"
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Audit every policy in iam_policy_audit/policies
+        run: |
+          fail=0
+          for f in iam_policy_audit/policies/*.json; do
+            python3 iam_policy_audit/validate_policy.py "$f" || fail=1
+          done
+          exit $fail
